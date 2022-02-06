@@ -175,3 +175,9 @@ class Produto:
         else:
             self.palavra = 'aumento'
             self.porcentagem = diferenca * 100 / (valor - diferenca)
+
+    @staticmethod
+    def limpar_atualizacoes():
+        cursor = conexao.cursor()
+        cursor.execute("update local.produtos set atualizado = 'N', diferenca = null, aumento_reducao = null")
+        conexao.commit()

@@ -5,6 +5,10 @@ from produto import Produto
 from tkinter import *
 
 
+def limpar():
+    produto.limpar_atualizacoes()
+
+
 def filtrar_produtos():
     p = grade_produtos.get()
     if p == 'negativo':
@@ -135,5 +139,8 @@ rb_padrao.grid(column=0)
 texto_filtar = 'FILTRAR'
 butao_filtrar = Button(janela, text=f'{texto_filtar:^20}', command=filtrar_produtos, bg='black', fg='white')
 butao_filtrar.grid(columnspan=10, padx=10, pady=10)
+
+butao_limpar = Button(janela, text=' LIMPAR ATUALIZAÇÕES ', command=limpar, bg='black', fg='white')
+butao_limpar.grid(columnspan=10, padx=10, pady=10)
 
 janela.mainloop()
